@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Journal History</h1>
+        <a href="{{ url_for('index') }}">Back to Journal</a>
+        {% if entries %}
+            {% for entry in entries|reversed %}
+                <div class="entry">
+                    <p><strong>You ({{ entry['date'] }}):</strong> {{ entry['user_entry'] }}</p>
+                    <p><strong>Companion:</strong> {{ entry['ai_response'] }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No entries yet. Start journaling!</p>
+        {% endif %}
+    </div>
+</body>
+</html>

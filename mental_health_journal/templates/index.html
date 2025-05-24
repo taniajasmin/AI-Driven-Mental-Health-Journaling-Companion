@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Journal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Journal Companion</h1>
+        <p>Write your thoughts, and I'll respond with support.</p>
+        <form method="POST" action="/">
+            <textarea name="entry" rows="5" placeholder="How are you feeling today?" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="{{ url_for('history') }}">View Past Entries</a>
+        {% if entries %}
+            <h3>Recent Entry</h3>
+            <div class="entry">
+                <p><strong>You ({{ entries[-1]['date'] }}):</strong> {{ entries[-1]['user_entry'] }}</p>
+                <p><strong>Companion:</strong> {{ entries[-1]['ai_response'] }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
