@@ -53,7 +53,7 @@ The AI companion responds with supportive and reflective comments, helping users
 
 
 ## 📁 Project Structure
-
+```
 mental_health_journal/
 │
 ├── app.py                # Main Flask application
@@ -66,7 +66,7 @@ mental_health_journal/
 │   └── entries.json      # JSON file storing all entries
 ├── .env                  # Environment variables (not in version control)
 └── requirements.txt      # Project dependencies
-
+```
 
 ## ⚙️ Configuration
 You can customize the AI behavior by modifying the prompt in app.py:
